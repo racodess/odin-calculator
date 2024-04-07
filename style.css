@@ -9,6 +9,7 @@
 
 body {
   margin: 0;
+  background-color: DarkSlateBlue;
 }
 
 #container {
@@ -78,11 +79,11 @@ button {
 }
 
 .yellow {
-  background-color: yellow;
+  background-color: gold;
 }
 
 .red {
-  background-color: red;
+  background-color: Crimson;
 }
 
 footer img {
