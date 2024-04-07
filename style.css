@@ -3,6 +3,10 @@
   src: url("./fonts/digital-7-italic.ttf");
 }
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
 }
@@ -35,19 +39,23 @@ body {
 }
 
 #display-top {
-  height: 20%;
+  height: 40%;
+  font-size: 24px;
 }
 
 #display {
-  height: 80%;
+  height: 60%;
+  font-size: 36px;
 }
 
 #display,
 #display-top {
   font-family: "Digital Italic", sans-serif;
+  display: flex;
+  justify-content: end;
+  align-items: end;
   flex-grow: 1;
-  padding: 2px;
-  text-align: end;
+  padding: 8px;
 }
 
 .buttons {
