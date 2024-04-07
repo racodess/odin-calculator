@@ -16,7 +16,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 0 5px;
+  padding: 5px;
 }
 
 #container-top {
@@ -100,4 +100,8 @@ a:visited {
   font-family: "Digital Italic", sans-serif;
   text-decoration: none;
   color: whitesmoke;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: 5px;
 }
