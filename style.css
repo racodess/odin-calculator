@@ -30,11 +30,14 @@ body {
 }
 
 #calculator {
-  height: 400px;
+  height: auto;
+  padding: 5px;
+  background-color: SteelBlue;
 }
 
 #display-container {
   height: 100px;
+  padding: 5px;
   flex-grow: 1;
 }
 
