@@ -56,6 +56,7 @@ body {
   align-items: end;
   flex-grow: 1;
   padding: 8px;
+  background-color: WhiteSmoke;
 }
 
 .buttons {
@@ -63,12 +64,21 @@ body {
   justify-content: center;
 }
 
-.buttons button {
+button {
   font-size: 32px;
   height: 50px;
   width: 50px;
   margin: 5px;
   border-radius: 0;
+  background-color: white;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.red {
+  background-color: red;
 }
 
 footer img {
