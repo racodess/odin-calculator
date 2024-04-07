@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Digital Italic";
+  src: url("./fonts/digital-7-italic.ttf");
+}
+
 body {
   margin: 0;
 }
@@ -39,7 +44,10 @@ body {
 
 #display,
 #display-top {
+  font-family: "Digital Italic", sans-serif;
   flex-grow: 1;
+  padding: 2px;
+  text-align: end;
 }
 
 .buttons {
