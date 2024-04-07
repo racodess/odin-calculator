@@ -33,6 +33,7 @@ body {
   height: auto;
   padding: 5px;
   background-color: SteelBlue;
+  border-radius: 5px;
 }
 
 #display-container {
