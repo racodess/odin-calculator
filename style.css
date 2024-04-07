@@ -3,3 +3,15 @@ body {
   display: flex;
   flex-direction: column;
 }
+
+#container {
+  height: 100vh;
+}
+
+footer img {
+  height: 20px;
+}
+
+footer {
+  text-align: end;
+}
