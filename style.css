@@ -14,17 +14,37 @@ body {
   justify-content: center;
 }
 
-#calculator {
+#calculator-container {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
+}
+
+#calculator {
+  height: 400px;
+}
+
+#display-container {
+  height: 100px;
+  flex-grow: 1;
+}
+
+#display-top {
+  height: 20%;
+}
+
+#display {
+  height: 80%;
+}
+
+#display,
+#display-top {
+  flex-grow: 1;
 }
 
 .buttons {
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .buttons button {
