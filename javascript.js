@@ -34,3 +34,9 @@ function operate(operand1, operand2, operator) {
       break;
   }
 }
+
+function clear() {
+  operand1 = 0;
+  operand2 = 0;
+  operator = "";
+}
