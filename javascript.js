@@ -29,17 +29,23 @@ function invertSign(operand1) {
 
 function operate(operand1, operand2, operator) {
   switch (operator) {
-    case "+":
+    case "":
       add(operand1, operand2);
       break;
-    case "-":
+    case "":
       subtract(operand1, operand2);
       break;
-    case "-":
+    case "":
       multiply(operand1, operand2);
       break;
-    case "-":
+    case "":
       divide(operand1, operand2);
+      break;
+    case "":
+      percent(operand1);
+      break;
+    case "":
+      invertSign(operand1);
       break;
   }
 }
