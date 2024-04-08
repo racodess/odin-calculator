@@ -33,6 +33,7 @@ body {
 
 #calculator {
   height: auto;
+  width: 255px;
   padding: 5px;
   background-color: SteelBlue;
   border-radius: 5px;
