@@ -19,6 +19,14 @@ function divide(operand1, operand2) {
   return operand1 / operand2;
 }
 
+function percent(operand1) {
+  return operand1 / 100;
+}
+
+function invertSign(operand1) {
+  return ~operand1 + 1;
+}
+
 function operate(operand1, operand2, operator) {
   switch (operator) {
     case "+":
