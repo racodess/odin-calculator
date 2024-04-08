@@ -40,24 +40,16 @@ body {
 }
 
 #display-container {
-  height: 100px;
-  padding: 5px;
+  height: auto;
+  border: 5px solid gray;
   flex-grow: 1;
-}
-
-#display-top {
-  height: 40%;
-  font-size: 24px;
+  margin: 5px;
 }
 
 #display {
-  height: 60%;
-  font-size: 36px;
-}
-
-#display,
-#display-top {
   font-family: "Digital Italic", sans-serif;
+  font-size: 36px;
+  height: 90%;
   display: flex;
   justify-content: end;
   align-items: end;
@@ -78,6 +70,10 @@ button {
   margin: 5px;
   border-radius: 0;
   background-color: white;
+}
+
+button#zero {
+  flex-grow: 1;
 }
 
 .yellow {
