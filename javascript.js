@@ -4,6 +4,11 @@ let operator = "";
 let result = 0;
 let displayValue = 0;
 
+let displayTop = document.querySelector("#display-top");
+let displayLower = document.querySelector("#display");
+
+clear();
+
 function add(operand1, operand2) {
   return operand1 + operand2;
 }
@@ -28,6 +33,21 @@ function invertSign(operand1) {
   return ~operand1 + 1;
 }
 
+function clear() {
+  operand1 = 0;
+  operand2 = 0;
+  operator = "";
+  result = 0;
+  displayValue = 0;
+
+  displayTop.textContent = "";
+  displayLower.textContent = 0;
+}
+
+function clearEntry() {
+  displayLower.textContent = 0;
+}
+
 function operate(operand1, operand2, operator) {
   switch (operator) {
     case "":
@@ -49,12 +69,4 @@ function operate(operand1, operand2, operator) {
       invertSign(operand1);
       break;
   }
-}
-
-function clear() {
-  operand1 = 0;
-  operand2 = 0;
-  operator = "";
-  result = 0;
-  displayValue = 0;
 }
