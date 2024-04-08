@@ -2,6 +2,7 @@ let operand1 = 0;
 let operand2 = 0;
 let operator = "";
 let result = 0;
+let displayValue = 0;
 
 function add(operand1, operand2) {
   return operand1 + operand2;
@@ -54,4 +55,6 @@ function clear() {
   operand1 = 0;
   operand2 = 0;
   operator = "";
+  result = 0;
+  displayValue = 0;
 }
