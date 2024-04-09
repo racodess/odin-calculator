@@ -1,72 +1,98 @@
-let operand1 = 0;
-let operand2 = 0;
-let operator = "";
-let result = 0;
-let displayValue = 0;
+let a = null;
+let b = null;
+let concatenate = false;
 
-let displayTop = document.querySelector("#display-top");
-let displayLower = document.querySelector("#display");
+let display = document.querySelector("#display");
+const buttons = document.querySelectorAll("button");
 
 clear();
+buttons.forEach(handleButton);
 
-function add(operand1, operand2) {
-  return operand1 + operand2;
+function add(a, b) {
+  return a + b;
 }
 
-function subtract(oprand1, operand2) {
-  return operand1 - operand2;
+function subtract(oprand1, b) {
+  return a - b;
 }
 
-function multiply(operand1, operand2) {
-  return operand1 * operand2;
+function multiply(a, b) {
+  return a * b;
 }
 
-function divide(operand1, operand2) {
-  return operand1 / operand2;
+function divide(a, b) {
+  return a / b;
 }
 
-function percent(operand1) {
-  return operand1 / 100;
+function getPercent(a) {
+  return a / 100;
 }
 
-function invertSign(operand1) {
-  return ~operand1 + 1;
+function invertSign(a) {
+  return ~a + 1;
 }
 
 function clear() {
-  operand1 = 0;
-  operand2 = 0;
-  operator = "";
-  result = 0;
-  displayValue = 0;
-
-  displayTop.textContent = "";
-  displayLower.textContent = 0;
+  a = null;
+  b = null;
+  operator = null;
+  concatenate = false;
+  display.textContent = 0;
 }
 
-function clearEntry() {
-  displayLower.textContent = 0;
-}
+function operate(operator) {
+  concatenate = false;
 
-function operate(operand1, operand2, operator) {
   switch (operator) {
-    case "":
-      add(operand1, operand2);
+    case "plus":
       break;
-    case "":
-      subtract(operand1, operand2);
+    case "minus":
       break;
-    case "":
-      multiply(operand1, operand2);
+    case "multiply":
       break;
-    case "":
-      divide(operand1, operand2);
+    case "divide":
       break;
-    case "":
-      percent(operand1);
+    case "percent":
       break;
-    case "":
-      invertSign(operand1);
+    case "sign":
+      break;
+    case "equal":
+      break;
+    case "clear":
+      clear();
       break;
   }
+}
+
+function handleButton(button) {
+  button.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (target.className === "digit") {
+      const digit = Number(target.textContent);
+
+      setDisplayValue(digit);
+    } else {
+      const operator = target.id;
+
+      setOperator(operator);
+    }
+  });
+}
+
+function setDisplayValue(digit) {
+  const current = display.textContent;
+
+  if (current.length == 12);
+  else if (!concatenate || current == 0) {
+    display.textContent = digit;
+    concatenate = true;
+  } else if (concatenate) display.textContent += digit;
+  else {
+    display.textContent = digit;
+  }
+}
+
+function getDisplayValue() {
+  return display.textContent;
 }
