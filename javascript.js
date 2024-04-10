@@ -12,11 +12,9 @@ const calculator = {
     switch (this.operator) {
       case "float":
         this.result = this[this.operator](this.recent);
-        this.setResult();
         return this.result;
       case "negate":
         this.result = this[this.operator](this.recent);
-        this.setResult();
         return this.result;
       default:
         this.result = this[this.operator](this.a, this.b);
@@ -78,6 +76,16 @@ function handleButton(button) {
 
         return;
       } 
+      else if (target.id === "float" || target.id === "negate"){
+        const temp = calculator.operator;
+        calculator.operator = target.id;
+
+        calculator.recent = display.textContent;
+        calculator.concatenate = false;
+        setDisplayValue(calculator.operate(), false);
+        setOperand();
+        calculator.operator = temp;
+      }
       else if (!calculator.operator) { 
         setOperand();
         calculator.operator = target.id;
