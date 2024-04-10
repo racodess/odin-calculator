@@ -11,36 +11,36 @@ const calculator = {
   operate() {
     switch (this.operator) {
       case "float":
-        this[this.operator](this.recent);
+        this.result = this[this.operator](this.recent);
         this.setResult();
         return this.result;
       case "negate":
-        this[this.operator](this.recent);
+        this.result = this[this.operator](this.recent);
         this.setResult();
         return this.result;
       default:
-        this[this.operator](this.a, this.b);
+        this.result = this[this.operator](this.a, this.b);
         this.setResult();
         return this.result;
     }
   },
   add(a, b) {
-    this.result = a + b;
+    return a + b;
   },
   subtract(a, b) {
-    this.result = a - b;
+    return a - b;
   },
   multiply(a, b) {
-    this.result = a * b;
+    return a * b;
   },
   divide(a, b) {
-    this.result = a / b;
+    return a / b;
   },
   float(a) {
-    this.result = a / 100;
+    return a / 100;
   },
   negate(a) {
-    this.result = a * -1;
+    return a * -1;
   },
   clear() {
     this.a = null;
