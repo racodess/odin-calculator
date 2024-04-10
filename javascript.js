@@ -9,25 +9,29 @@ const calculator = {
   recent: null,
   operator: null,
   operate() {
+    const test = this.operator;
+
     switch (this.operator) {
-      case "add":
-        this[this.operator](this.a, this.b);
-        break;
-      case "subtract":
-        this[this.operator](this.a, this.b);
-        break;
-      case "multiply":
-        this[this.operator](this.a, this.b);
-        break;
-      case "divide":
-        this[this.operator](this.a, this.b);
-        break;
+      //  case "add":
+      //    this[this.operator](this.a, this.b);
+      //    break;
+      //  case "subtract":
+      //    this[this.operator](this.a, this.b);
+      //    break;
+      //  case "multiply":
+      //    this[this.operator](this.a, this.b);
+      //    break;
+      //  case "divide":
+      //    this[this.operator](this.a, this.b);
+      //    break;
       case "float":
-        this[this.operator](this.a);
+        this[this.operator](this.recent);
         break;
       case "negate":
-        this[this.operator](this.a);
+        this[this.operator](this.recent);
         break;
+      default:
+        this[test](this.a, this.b);
     }
   },
   add(a, b) {
@@ -71,25 +75,31 @@ function handleButton(button) {
     } else {
       calculator.operator = target.id;
 
-      if (
+      if (calculator.operator === "clear") {
+        calculator.clear();
+      } else if (
         typeof calculator.a === "number" &&
         typeof calculator.b === "number"
       ) {
-        const test = calculator.operate();
-        console.log(test);
-
+        setDisplayValue(calculator.operate());
         concatenate = false;
-      } else if (typeof calculator.a !== "number") {
-        calculator.a = Number(getDisplayValue());
-        concatenate = false;
-        console.log("a = " + calculator.a);
-      } else {
-        calculator.b = Number(getDisplayValue());
-        calculator.operate();
-        console.log("b = " + calculator.b);
-      }
+      } else setOperand();
     }
   });
+}
+
+function setOperand() {
+  if (typeof calculator.a !== "number") {
+    calculator.a = Number(getDisplayValue());
+    calculator.recent = calculator.a;
+    concatenate = false;
+    console.log("a = " + calculator.a);
+  } else {
+    calculator.b = Number(getDisplayValue());
+    calculator.recent = calculator.b;
+    setDisplayValue(calculator.operate());
+    console.log("b = " + calculator.b);
+  }
 }
 
 function setDisplayValue(digit) {
