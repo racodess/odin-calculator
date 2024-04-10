@@ -41,10 +41,10 @@ const calculator = {
     return a * -1;
   },
   equal(){
-    if (this.a)
-      return this.a;
+    if (this.recent)
+      return this.recent;
     else
-      return this.b;
+      return 0;
   },
   clear() {
     this.a = null;
@@ -117,17 +117,18 @@ function setOperand() {
   return;
 }
 
-function setDisplayValue(digit, concatenate) {
+function setDisplayValue(value, concatenate) {
   const current = display.textContent;
 
   if (current.length == 12) 
     return;
+  else if (value == "." && current.includes(".")){
+      return;
+    }
   else if (!calculator.concatenate || current == 0 || isNaN(current))
-    display.textContent = Number(String(digit).slice(0, 11));
+    display.textContent = Number(String(value).slice(0, 11));
   else if (calculator.concatenate) 
-    display.textContent += digit;
-  else 
-    display.textContent = digit;
+    display.textContent += value;
 
   if(concatenate === false) 
     calculator.concatenate = false;
