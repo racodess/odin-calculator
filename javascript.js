@@ -1,68 +1,64 @@
-let a = null;
-let b = null;
 let concatenate = false;
 
 let display = document.querySelector("#display");
 const buttons = document.querySelectorAll("button");
 
-clear();
+const calculator = {
+  a: null,
+  b: null,
+  recent: null,
+  operator: null,
+  operate() {
+    switch (this.operator) {
+      case "add":
+        this[this.operator](this.a, this.b);
+        break;
+      case "subtract":
+        this[this.operator](this.a, this.b);
+        break;
+      case "multiply":
+        this[this.operator](this.a, this.b);
+        break;
+      case "divide":
+        this[this.operator](this.a, this.b);
+        break;
+      case "float":
+        this[this.operator](this.a);
+        break;
+      case "negate":
+        this[this.operator](this.a);
+        break;
+    }
+  },
+  add(a, b) {
+    return a + b;
+  },
+  subtract(a, b) {
+    return a - b;
+  },
+  multiply(a, b) {
+    return a * b;
+  },
+  divide(a, b) {
+    return a / b;
+  },
+  float(a) {
+    return a / 100;
+  },
+  negate(a) {
+    return a * -1;
+  },
+  clear() {
+    a = null;
+    b = null;
+    operator = null;
+    concatenate = false;
+    display.textContent = 0;
+  },
+};
+
+calculator.clear();
 buttons.forEach(handleButton);
-
-function add(a, b) {
-  return a + b;
-}
-
-function subtract(oprand1, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
-}
-
-function getPercent(a) {
-  return a / 100;
-}
-
-function invertSign(a) {
-  return ~a + 1;
-}
-
-function clear() {
-  a = null;
-  b = null;
-  operator = null;
-  concatenate = false;
-  display.textContent = 0;
-}
-
-function operate(operator) {
-  concatenate = false;
-
-  switch (operator) {
-    case "plus":
-      break;
-    case "minus":
-      break;
-    case "multiply":
-      break;
-    case "divide":
-      break;
-    case "percent":
-      break;
-    case "sign":
-      break;
-    case "equal":
-      break;
-    case "clear":
-      clear();
-      break;
-  }
-}
 
 function handleButton(button) {
   button.addEventListener("click", (event) => {
@@ -73,9 +69,25 @@ function handleButton(button) {
 
       setDisplayValue(digit);
     } else {
-      const operator = target.id;
+      calculator.operator = target.id;
 
-      setOperator(operator);
+      if (
+        typeof calculator.a === "number" &&
+        typeof calculator.b === "number"
+      ) {
+        const test = calculator.operate();
+        console.log(test);
+
+        concatenate = false;
+      } else if (typeof calculator.a !== "number") {
+        calculator.a = Number(getDisplayValue());
+        concatenate = false;
+        console.log("a = " + calculator.a);
+      } else {
+        calculator.b = Number(getDisplayValue());
+        calculator.operate();
+        console.log("b = " + calculator.b);
+      }
     }
   });
 }
