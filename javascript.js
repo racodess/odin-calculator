@@ -42,6 +42,12 @@ const calculator = {
   negate(a) {
     return a * -1;
   },
+  equal(){
+    if (this.a)
+      return this.a;
+    else
+      return this.b;
+  },
   clear() {
     this.a = null;
     this.b = null;
