@@ -68,8 +68,8 @@ function handleButton(button) {
   button.addEventListener("click", (event) => {
     const target = event.target;
 
-    if (target.className === "digit")
-        setDisplayValue(Number(target.textContent));
+    if (target.className === "digit" || target.id === "point")
+        setDisplayValue(target.textContent);
     else {
       if (target.id === "clear"){
         calculator.clear();
@@ -122,8 +122,8 @@ function setDisplayValue(digit, concatenate) {
 
   if (current.length == 12) 
     return;
-  else if (!calculator.concatenate || current == 0) 
-    display.textContent = Number(String(digit).slice(0, 12));
+  else if (!calculator.concatenate || current == 0 || isNaN(current))
+    display.textContent = Number(String(digit).slice(0, 11));
   else if (calculator.concatenate) 
     display.textContent += digit;
   else 
